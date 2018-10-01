@@ -10,5 +10,9 @@
    #:init-tess-api
    #:process-pages
    #:image-to-text
-   #:image-to-hocr))
+   #:image-to-hocr
+   #:TessBaseAPISetImage
+   #:TessBaseAPIGetUTF8Text
+   #:TessBaseAPIGetHOCRText
+   ))
 
