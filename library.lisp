@@ -1,16 +1,17 @@
 (in-package :cl-tesseract)
 
 (cffi:define-foreign-library tesseract
-  (:darwin (:or "libtesseract.3.dylib" "libtesseract.dylib"))
-  (:linux (:or "libtesseract.3.so" "libtesseract.so"))
+  (:darwin (:or "libtesseract.4.dylib" "libtesseract.dylib"))
+  (:linux (:or "libtesseract.so.4" "libtesseract.so"))
   (t (:default "libtesseract"))) ; Will this work on Windows?
 
 (cffi:use-foreign-library tesseract)
 
-(defparameter *tessdata-directory* 
+(defvar *tessdata-directory* 
   #+unix
   (namestring (or (probe-file "/usr/local/share/tessdata") ; Homebrew
-                  (probe-file "/usr/local/tessdata")))
+                  (probe-file "/usr/local/tessdata")
+                  (probe-file "/usr/share/tesseract-ocr/4.00/tessdata/")))
   #+windows
   (namestring (probe-file "C:\\Program Files\\Tesseract OCR\\tessdata"))
   "*tessdata-directory* should point to the location of the directory containing 
