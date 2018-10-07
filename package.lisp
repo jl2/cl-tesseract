@@ -14,5 +14,6 @@
    #:TessBaseAPISetImage
    #:TessBaseAPIGetUTF8Text
    #:TessBaseAPIGetHOCRText
+   #:TessBaseAPIRecognize
    ))
 
